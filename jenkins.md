@@ -43,8 +43,17 @@ Retrieve it from your server:
 
 `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
 
+![](assets/Snipaste_2023-02-26_11-06-25.png)
+
 Then you will be asked which plugings to install – choose suggested plugins.
 
 ![](assets/5.png) 
+
+Once plugin installation is done – create an admin user and you will get your Jenkins server address.
+
+The installation is completed!
+
+![](assets/7.png) 
+
 
 
