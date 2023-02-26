@@ -114,11 +114,43 @@ On the "Available" tab search for the *"Publish Over SSH" *plugin and install it
 
 ![](assets/18.png)
 
+2. Configure the job/project to copy artifacts over to the NFS server.
+- On the main dashboard select "Manage Jenkins" and choose the "Configure System" menu item.
+- Scroll down to Publish over the SSH plugin configuration section and configure it to be able to connect to your NFS server:
+Provide a private key (the content of .pem file that you use to connect to the NFS server via SSH/Putty)
+- Arbitrary name
+- Hostname – can be private IP address of your NFS server
+Username – ec2-user (since the NFS server is based on EC2 with RHEL 8)
+- Remote directory – /mnt/apps since our Web Servers use it as a mounting point to retrieve files from the NFS server
+- Test the configuration and make sure the connection returns **Success**. 
+  >Remember, that TCP port 22 on NFS server must be open to receive SSH connections.
+  
+  ![](assets/13.png)
 
+  Save the configuration, open your Jenkins job/project configuration page and add another one "Post-build Action"
 
+  ![](assets/19.png)
+  ![](assets/14.png)
 
+  - Configure it to send all files produced by the build into our previously define remote directory. In our case we want to copy all files and directories – so we use **.
+  
+  ![](assets/20.png)
 
+- Save this configuration and go ahead, and change something in README.MD file in your GitHub Tooling repository.
+- Webhook will trigger a new job and in the "Console Output" of the job you will find something like this:
+```
+SSH: Transferred 25 file(s)
+Finished: SUCCESS
+```
+>To make sure that the files in **/mnt/apps** have been updated – connect via SSH/Putty to your NFS server and check README.MD file
 
+`cat /mnt/apps/README.md`
 
+![](assets/15.png)
+
+If you see the changes you had previously made in your GitHub – the job works as expected.
+
+**Congratulations!**
+You have just implemented Continous Integration solution using Jenkins CI. 
 
 
