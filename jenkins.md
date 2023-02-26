@@ -79,3 +79,46 @@ Click the "Build Now" button, if you have configured everything correctly, the b
 
 ![](assets/11.png)
 
+>You can open the build and check in "Console Output" if it has run successfully.
+
+But this build does not produce anything and it runs only when we trigger it manually. Let us fix it.
+
+3. Click "Configure" your job/project and add these two configurations
+
+![](assets/17.png)
+
+Configure "Post-build Actions" to archive all the files – files resulting from a build are called "artifacts".
+
+Now, go ahead and make some changes in any file in your GitHub repository (e.g. README.MD file) and push the changes to the master branch.
+
+You will see that a new build has been launched automatically **(by webhook)** and you can see its results – artifacts, saved on the Jenkins server.
+
+![](assets/12.png)
+
+>You have now configured an automated Jenkins job that receives files from GitHub by webhook trigger (this method is considered as **‘push’** because the changes are being ‘pushed’ and file transfer is initiated by GitHub). 
+
+There are also other methods: trigger one job (downstream) from another (upstream), poll GitHub periodically and others.
+
+- By default, the artifacts are stored on the Jenkins server locally
+  
+`ls /var/lib/jenkins/jobs/tooling_github/builds/<build_number>/archive/`
+
+### Step 3 – Configure Jenkins to copy files to NFS server via SSH
+Now we have our artifacts saved locally on Jenkins server, the next step is to copy them to our NFS server to **/mnt/apps** directory.
+
+Jenkins is a highly extendable application and there are 1400+ plugins available. We will need a plugin that is called **"Publish Over SSH"**.
+
+1. Install the "Publish Over SSH" plugin.
+>On the main dashboard select *"Manage Jenkins"* and choose the "Manage Plugins" menu item.
+On the "Available" tab search for the *"Publish Over SSH" *plugin and install it
+
+![](assets/18.png)
+
+
+
+
+
+
+
+
+
