@@ -29,3 +29,22 @@ sudo apt-get install jenkins
 5. By default Jenkins server uses TCP port 8080 – open it by creating a new Inbound Rule in your EC2 Security Group
 
  ![](assets/3.png)
+
+ 6. Perform initial Jenkins setup.
+From your browser access:
+
+<http:/Jenkins-Server-Public-IP-Address-or-Public-DNS-Name:8080>
+
+You will be prompted to provide a default admin password
+
+![](assets/4.png) 
+
+Retrieve it from your server:
+
+`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
+
+Then you will be asked which plugings to install – choose suggested plugins.
+
+![](assets/5.png) 
+
+
