@@ -1,4 +1,4 @@
-## Task   
+## Task    
 Enhance the architecture prepared in Project 8 by adding a Jenkins server, and configuring a job to automatically deploy source code changes from Git to the NFS server.
 Here is what your updated architecture will look like upon completion of this project:
 ![](assets/1.png)
