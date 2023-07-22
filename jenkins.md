@@ -3,7 +3,7 @@ Enhance the architecture prepared in Project 8 by adding a Jenkins server, and c
 Here is what your updated architecture will look like upon completion of this project:
 ![](assets/1.png)
 
-### Step 1 – Install the Jenkins server
+### Step 1 – Install the Jenkins server 
 1. Create an AWS EC2 server based on Ubuntu Server 20.04 LTS and name it *"Jenkins"*  
 2. Install JDK (since Jenkins is a Java-based application)
     
