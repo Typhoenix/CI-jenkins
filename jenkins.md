@@ -6,7 +6,7 @@ Here is what your updated architecture will look like upon completion of this pr
 ### Step 1 – Install the Jenkins server
 1. Create an AWS EC2 server based on Ubuntu Server 20.04 LTS and name it *"Jenkins"*
 2. Install JDK (since Jenkins is a Java-based application)
-   
+    
 `sudo apt update`
 `sudo apt install default-jdk-headless`
 
